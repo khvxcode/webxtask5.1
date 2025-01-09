@@ -1,0 +1,42 @@
+<html>
+<head>
+    <title>Dynamic Greeting</title>
+</head>
+<body bgcolor="gold">
+    <h1 style="color:violet;">Welcome!</h1>
+    <form name="greetForm">
+        <p id="greeting"></p>
+        <p id="time"></p>
+    </form>
+
+    <script>
+        
+        var now = new Date();
+        var hours = now.getHours();
+        var minutes = now.getMinutes();
+        var seconds = now.getSeconds();
+
+        
+        minutes = minutes < 10 ? "0" + minutes : minutes;
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+
+        
+        var message = "";
+        if (hours < 12) {
+            message = "Good Morning!";
+        } else if (hours < 18) {
+            message = "Good Afternoon!";
+        } else {
+            message = "Good Evening!";
+        }
+
+        // Using a variable to access the elements directly
+        var greetElem = document.querySelector("#greeting");
+        var timeElem = document.querySelector("#time");
+
+        // Update innerText
+        greetElem.innerText = message;
+        timeElem.innerText = "The current time is: " + hours + ":" + minutes + ":" + seconds;
+    </script>
+</body>
+</html>
